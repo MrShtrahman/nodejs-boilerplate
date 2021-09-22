@@ -1,0 +1,7 @@
+git/
+.eslint*
+.prettier*
+node_modules/
+.huskyrc
+.lintstagedrc
+jest.config.js

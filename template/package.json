@@ -5,10 +5,11 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "cross-env NODE_ENV=production tsc -p .",
-    "start": "cross-env NODE_ENV=production node lib/index.js",
+    "start": "cross-env NODE_ENV=production node dist/index.js",
     "dev": "cross-env NODE_ENV=development ts-node-dev src/index.ts",
     "format": "prettier src/**/*.ts --write",
-    "lint": "eslint src/**/*.ts --fix"
+    "lint": "eslint src/**/*.ts --fix",
+    "typedoc": "typedoc src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +27,8 @@
     "morgan": "^1.10.0",
     "prom-client": "^14.0.0",
     "response-time": "^2.3.2",
-    "swagger-ui-express": "^4.1.6"
+    "swagger-ui-express": "^4.1.6",
+    "xss-clean": "^0.1.1"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.2",
