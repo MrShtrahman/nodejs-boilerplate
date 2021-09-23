@@ -3,8 +3,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm ci \
     && npm cache clear --force
-COPY tsconfig.json ./
-COPY src src
+COPY . .
 RUN npm run build
 
 FROM chat-shit-get-banged:latest
