@@ -20,7 +20,12 @@
   },
   "rules": {
     "node/no-unsupported-features/es-syntax": ["error", { "ignores": ["modules"] }],
-    "import/no-unresolved": "error"
+    "import/resolver": {
+      "node": {
+        "extensions": ".ts",
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
   },
   "settings": {
     "import/parsers": {

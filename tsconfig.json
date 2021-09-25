@@ -5,6 +5,8 @@
     "moduleResolution": "node",
     "outDir": "dist",
     "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
     "sourceMap": true,
@@ -15,7 +17,8 @@
     "noUnusedParameters": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "resolveJsonModule": true
   },
   "include": ["src/**/*", "__tests__/**/*"],
   "exclude": ["node_modules"]

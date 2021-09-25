@@ -5,3 +5,4 @@ node_modules/
 .huskyrc
 .lintstagedrc
 jest.config.js
+dist/
