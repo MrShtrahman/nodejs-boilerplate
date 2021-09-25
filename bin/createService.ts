@@ -69,7 +69,7 @@ try {
     await runCmd('npx rimraf ./.git');
 
     // Remove extra files
-    unlinkSync(join(appPath, 'bin', 'createNodejsApp.js'));
+    unlinkSync(join(appPath, 'bin', 'createService.ts'));
     rmdirSync(join(appPath, 'bin'));
 
     console.log('Installation is now complete!');
