@@ -4,6 +4,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import responseTime from 'response-time';
+import compression from 'compression';
 import xssClean from 'xss-clean';
 import { serve, setup } from 'swagger-ui-express';
 
@@ -12,6 +13,7 @@ import swaggerFile from '../public/swagger.json';
 import Router from './routes';
 
 const app: Application = express();
+app.use(compression());
 app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(helmet());
