@@ -1,10 +1,11 @@
 #!/usr/bin/env node
+import child_process from 'child_process';
 import { promisify } from 'util';
 import { join } from 'path';
 import { mkdirSync, unlinkSync, rmdirSync, copyFileSync } from 'fs';
 
 // Utility functions
-const exec = promisify(require('child_process').exec);
+const exec = promisify(child_process.exec);
 const runCmd = async (command: string): Promise<void> => {
   try {
     const { stdout, stderr } = await exec(command);
@@ -17,9 +18,10 @@ const runCmd = async (command: string): Promise<void> => {
 
 // Validate arguments
 if (process.argv.length < 3) {
-  console.log('Please specify the target project directory.');
-  console.log('For example:');
-  console.log('    npx create-service my-app');
+  console.log(`Please specify the target project directory.
+  For example:
+      npx create-service my-app`);
+
   process.exit(1);
 }
 
@@ -46,8 +48,7 @@ try {
     // Clone repo
     console.log(`Downloading files from repo ${repo}`);
     await runCmd(`git clone --depth 1 ${repo} ${folderName}`);
-    console.log('Cloned successfully.');
-    console.log('');
+    console.log('Cloned successfully.\n');
 
     // Change directory
     process.chdir(appPath);
@@ -55,11 +56,11 @@ try {
     // Install dependencies
     console.log('Checking for updates...');
     await runCmd('npx ncu -u');
-    console.log();
+    
     console.log('Installing dependencies...');
     await runCmd('npm i');
-    console.log('Dependencies installed successfully.');
-    console.log();
+    console.log('Dependencies installed successfully.\n');
+    
 
     // Copy envornment variables
     copyFileSync(join(appPath, '.env.example'), join(appPath, '.env'));
@@ -72,9 +73,10 @@ try {
     unlinkSync(join(appPath, 'bin', 'createService.ts'));
     rmdirSync(join(appPath, 'bin'));
 
-    console.log('Installation is now complete!');
-    console.log();
-    console.log('Enjoy bitch');
+    console.log(`Installation is now complete!
+    
+    Enjoy bitch
+    `);
   } catch (error) {
     console.error(error);
   }
